@@ -1,0 +1,29 @@
+**********************
+PowerShell transcript start
+Start time: 20260225074154
+Username: DESKTOP-PCCAUL3\adeena
+RunAs User: DESKTOP-PCCAUL3\adeena
+Configuration Name: 
+Machine: DESKTOP-PCCAUL3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -WorkingDirectory ~
+Process ID: 17036
+PSVersion: 7.5.4
+PSEdition: Core
+GitCommitId: 7.5.4
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260225_074154_Run_BuildMain.txt
+PS>TerminatingError(): "You must run PowerShell as Administrator."
+
+[-] BUILD FAILED
+Message: You must run PowerShell as Administrator.
+PS>TerminatingError(): "The pipeline has been stopped."
+**********************
+PowerShell transcript end
+End time: 20260225074155
+**********************

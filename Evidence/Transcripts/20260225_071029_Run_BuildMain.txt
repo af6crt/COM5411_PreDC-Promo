@@ -1,0 +1,56 @@
+**********************
+PowerShell transcript start
+Start time: 20260225071029
+Username: DESKTOP-PCCAUL3\adeena
+RunAs User: DESKTOP-PCCAUL3\adeena
+Configuration Name: 
+Machine: DESKTOP-PCCAUL3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll
+Process ID: 11536
+PSVersion: 7.5.4
+PSEdition: Core
+GitCommitId: 7.5.4
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260225_071029_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+--- [STAFF-ONLY] Configuring Persistent LCM Settings ---
+WARNING: Module PSDesiredStateConfiguration is loaded in Windows PowerShell using WinPSCompatSession remoting session; please note that all input and output of commands from this module will be deserialized objects. If you want to load this module into PowerShell please use 'Import-Module -SkipEditionCheck' syntax.
+Configuration: Cannot process argument transformation on parameter 'ResourceModuleTuplesToImport'. Cannot convert the "System.Collections.ArrayList" value of type "System.Collections.ArrayList" to type "System.Tuple`3[System.String[],Microsoft.PowerShell.Commands.ModuleSpecification[],System.Version]".
+Configuration: Cannot process argument transformation on parameter 'ResourceModuleTuplesToImport'. Cannot convert the "System.Collections.ArrayList" value of type "System.Collections.ArrayList" to type "System.Tuple`3[System.String[],Microsoft.PowerShell.Commands.ModuleSpecification[],System.Version]".
+[*] Applying persistent automation settings...
+Set-DscLocalConfigurationManager: The computer name was not specified and the configuration directory does not have any configuration files.
+Set-DscLocalConfigurationManager: The computer name was not specified and the configuration directory does not have any configuration files.
+[+] LCM configured. Server is now reboot-ready.
+[*] Ensuring DSC modules are installed/pinned (PSResourceGet) ...
+    -> ActiveDirectoryDsc@6.6.0
+    -> PSDesiredStateConfiguration@2.0.7
+    -> GroupPolicyDsc@1.0.3
+    -> Pester@5.7.1
+[+] DSC module baseline ensured at C:\\Program Files\\WindowsPowerShell\\Modules.
+--- BarmBuzz Network, PSRemoting & RSAT Prep ---
+[*] Checking Network Connection Profiles (all connected NICs)...
+    Changing 'Network' (Idx 5) from Public -> Private
+
+[*] Configuring Windows Remote Management (WinRM)...
+WARNING: PowerShell remoting has been enabled only for PowerShell 6+ configurations and does not affect Windows PowerShell remoting configurations. Run this cmdlet in Windows PowerShell to affect all PowerShell remoting configurations.
+WinRM has been updated to receive requests.
+WinRM service type changed successfully. 
+WinRM service started.
+WinRM has been updated for remote management.
+WinRM firewall exception enabled. 
+Configured LocalAccountTokenFilterPolicy to grant administrative rights remotely to local users.
+
+[*] Verifying Connectivity...
+    [+] WinRM is responding! (Protocol Version: OS: 0.0.0 SP: 0.0 Stack: 3.0)
+    [+] Ready for Orchestration.
+
+[*] Ensuring RSAT tools (AD + GPO) are installed...
