@@ -1,0 +1,56 @@
+**********************
+PowerShell transcript start
+Start time: 20260228093206
+Username: DESKTOP-PCCAUL3\adeena
+RunAs User: DESKTOP-PCCAUL3\adeena
+Configuration Name: 
+Machine: DESKTOP-PCCAUL3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll
+Process ID: 7200
+PSVersion: 7.5.4
+PSEdition: Core
+GitCommitId: 7.5.4
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260228_093206_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+
+    Directory: C:\Dev\repos\COM5411_PreDC-Promo\DSC\Outputs\StudentBaseline
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---           2/28/2026  9:32 AM           2608 localhost.mof
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+InvalidOperation: Importing module DSC_Computer failed with error - File C:\Program Files\WindowsPowerShell\Modules\ComputerManagementDsc\10.0.0\DscResources\DSC_Computer\DSC_Computer.psm1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+InvalidOperation: Importing module DSC_Computer failed with error - File C:\Program Files\WindowsPowerShell\Modules\ComputerManagementDsc\10.0.0\DscResources\DSC_Computer\DSC_Computer.psm1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260228_093206\
+**********************
+PowerShell transcript end
+End time: 20260228093207
+**********************

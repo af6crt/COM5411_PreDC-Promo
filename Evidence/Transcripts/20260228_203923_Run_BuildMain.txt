@@ -1,0 +1,60 @@
+**********************
+PowerShell transcript start
+Start time: 20260228203923
+Username: BB-DC01\adeena
+RunAs User: BB-DC01\adeena
+Configuration Name: 
+Machine: BB-DC01 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll
+Process ID: 1788
+PSVersion: 7.5.4
+PSEdition: Core
+GitCommitId: 7.5.4
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260228_203923_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+
+    Directory: C:\Dev\repos\COM5411_PreDC-Promo\DSC\Outputs\StudentBaseline
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---           2/28/2026  8:39 PM           2592 localhost.mof
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+DeviceError: The target of the specified cmdlet cannot be a Windows client-based operating system.
+DeviceError: The target of the specified cmdlet cannot be a Windows client-based operating system.
+InvalidOperation: The PowerShell DSC resource '[WindowsFeature]ADDS' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::31::9::WindowsFeature' threw one or more non-terminating errors while running the Test-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+InvalidOperation: The PowerShell DSC resource '[WindowsFeature]ADDS' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::31::9::WindowsFeature' threw one or more non-terminating errors while running the Test-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+CimException: The SendConfigurationApply function did not succeed.
+CimException: The SendConfigurationApply function did not succeed.
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260228_203923\
+**********************
+PowerShell transcript end
+End time: 20260228203941
+**********************

@@ -1,0 +1,95 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260228185708
+Username: BB-DC01\Administrator
+RunAs User: BB-DC01\Administrator
+Configuration Name: 
+Machine: BB-DC01 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 2628
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260228_185708_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+Perform operation 'Invoke CimMethod' with following parameters, ''methodName' =
+SendConfigurationApply,'className' = MSFT_DSCLocalConfigurationManager,'namespaceName' =
+root/Microsoft/Windows/DesiredStateConfiguration'.
+An LCM method call arrived from computer BB-DC01 with user sid S-1-5-21-801708204-2140448719-2328611195-500.
+[BB-DC01]: LCM:  [ Start  Set      ]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Computer]SetName]
+[BB-DC01]:                            [[Computer]SetName] Testing computer state for 'BB-DC01'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Computer]SetName]  in 0.0690 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[TimeZone]SetTimeZone]
+[BB-DC01]:                            [[TimeZone]SetTimeZone] Testing the time zone.
+[BB-DC01]: LCM:  [ End    Test     ]  [[TimeZone]SetTimeZone]  in 0.2110 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ End    Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Service]WindowsTime]
+[BB-DC01]:                            [[Service]WindowsTime] Perform operation 'Query CimInstances' with
+following parameters, ''queryExpression' = SELECT * FROM Win32_Service WHERE Name='W32Time','queryDialect' =
+WQL,'namespaceName' = root\cimv2'.
+[BB-DC01]:                            [[Service]WindowsTime] Operation 'Query CimInstances' complete.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Service]WindowsTime]  in 0.5860 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]ADDS]
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' started:
+AD-Domain-Services
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' succeeded:
+AD-Domain-Services
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]ADDS]  in 1.7530 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]RSAT]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]RSAT]
+[BB-DC01]:                            [[WindowsFeature]RSAT] The operation 'Get-WindowsFeature' started:
+RSAT-AD-Tools
+[BB-DC01]:                            [[WindowsFeature]RSAT] The operation 'Get-WindowsFeature' succeeded:
+RSAT-AD-Tools
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]RSAT]  in 1.4710 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]RSAT]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]RSAT]
+[BB-DC01]: LCM:  [ End    Set      ]
+[BB-DC01]: LCM:  [ End    Set      ]    in  5.5440 seconds.
+Operation 'Invoke CimMethod' complete.
+Time taken for configuration job to complete is 7.162 seconds
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260228_185708\
+**********************
+Windows PowerShell transcript end
+End time: 20260228185716
+**********************
