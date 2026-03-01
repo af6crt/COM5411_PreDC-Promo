@@ -6,30 +6,37 @@ STUDENT TASK:
 #>
 
 Configuration StudentBaseline {
-    param()
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName ComputerManagementDSC
-    #Import-DscResource -ModuleName ActivedirectoryDSC
-
 
     Node $AllNodes.NodeName {
 
-        # Ensure C:\TEST exists
-        File TestFolder {
-            DestinationPath = 'C:\TEST'
-            Type            = 'Directory'
-            Ensure          = 'Present'
+        Computer SetName {
+            Name = $Node.ComputerName
         }
 
-        # Ensure C:\TEST\test.txt exists with content
-        File TestFile {
-            DestinationPath = 'C:\TEST\test.txt'
-            Type            = 'File'
-            Ensure          = 'Present'
-            Contents        = 'Proof-of-life: DSC created this file.'
-            DependsOn       = '[File]TestFolder'
+        TimeZone SetTimeZone {
+            IsSingleInstance = 'Yes'
+            TimeZone = $Node.TimeZone
         }
 
+        Service WindowsTime {
+            Name = 'W32Time'
+            State = 'Running'
+            StartupType = 'Automatic'
+            DependsOn = '[TimeZone]SetTimeZone'
+        }
+
+        WindowsFeature ADDS {
+            Name   = 'AD-Domain-Services'
+            Ensure = 'Present'
+        }
+
+        WindowsFeature RSAT {
+            Name      = 'RSAT-AD-Tools'
+            Ensure    = 'Present'
+            DependsOn = '[WindowsFeature]ADDS'
+        }
     }
 }
