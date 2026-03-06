@@ -1,0 +1,48 @@
+﻿
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : BB-DC01
+   Primary Dns Suffix  . . . . . . . : barmbuzz.corp
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : barmbuzz.corp
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . : barmbuzz.corp
+   Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+   Physical Address. . . . . . . . . : 08-00-27-C6-C2-B1
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   IPv6 Address. . . . . . . . . . . : fd17:625c:f037:2:15f7:59d2:de8d:5d69(Preferred) 
+   Link-local IPv6 Address . . . . . : fe80::d4da:940e:8456:1f14%6(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 10.0.2.15(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Thursday, March 5, 2026 2:54:01 PM
+   Lease Expires . . . . . . . . . . : Friday, March 6, 2026 2:53:44 PM
+   Default Gateway . . . . . . . . . : fe80::2%6
+                                       10.0.2.2
+   DHCP Server . . . . . . . . . . . : 10.0.2.2
+   DHCPv6 IAID . . . . . . . . . . . : 101187623
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-31-21-65-4B-08-00-27-C6-C2-B1
+   DNS Servers . . . . . . . . . . . : ::1
+                                       127.0.0.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter #2
+   Physical Address. . . . . . . . . : 08-00-27-C4-BA-0E
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::6bbf:64e4:ebbc:2683%5(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.99.10(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+   DHCPv6 IAID . . . . . . . . . . . : 168296487
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-31-21-65-4B-08-00-27-C6-C2-B1
+   DNS Servers . . . . . . . . . . . : ::1
+                                       127.0.0.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled

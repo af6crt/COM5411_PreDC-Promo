@@ -1,0 +1,602 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260306123544
+Username: BarmBuzz\Administrator
+RunAs User: BarmBuzz\Administrator
+Configuration Name: 
+Machine: BB-DC01 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 5284
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260306_123544_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+Perform operation 'Invoke CimMethod' with following parameters, ''methodName' = SendConfigurationApply,'className' = MSFT_DSCLocalConfigurationManager,'namespaceName' =
+root/Microsoft/Windows/DesiredStateConfiguration'.
+An LCM method call arrived from computer BB-DC01 with user sid S-1-5-21-801708204-2140448719-2328611195-500.
+[BB-DC01]: LCM:  [ Start  Set      ]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Computer]SetName]
+[BB-DC01]:                            [[Computer]SetName] Testing computer state for 'BB-DC01'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Computer]SetName]  in 0.1970 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[TimeZone]SetTimeZone]
+[BB-DC01]:                            [[TimeZone]SetTimeZone] Testing the time zone.
+[BB-DC01]: LCM:  [ End    Test     ]  [[TimeZone]SetTimeZone]  in 0.4850 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ End    Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Service]WindowsTime]
+[BB-DC01]:                            [[Service]WindowsTime] Perform operation 'Query CimInstances' with following parameters, ''queryExpression' = SELECT * FROM Win32_Service WHERE
+Name='W32Time','queryDialect' = WQL,'namespaceName' = root\cimv2'.
+[BB-DC01]:                            [[Service]WindowsTime] Operation 'Query CimInstances' complete.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Service]WindowsTime]  in 1.9900 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[IPAddress]InternalIP]
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Checking the IP Address.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: IP Address is in desired state.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Prefix Length is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[IPAddress]InternalIP]  in 10.5790 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ End    Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Test-TargetResource: Checking settings on net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-TargetResource: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AdvertiseDefaultRoute' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Advertising' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AutomaticMetric' is 'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'DirectedMacWolPattern' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Dhcp' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'EcnMarking' is 'AppDecide'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ForceArpNdWolPattern' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Forwarding' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'IgnoreDefaultRoutes' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ManagedAddressConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NeighborUnreachabilityDetection' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'OtherStatefulConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'RouterDiscovery' is
+'ControlledByDHCP'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostReceive' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostSend' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NlMtu' is '1500'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'InterfaceMetric' is '25'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetIPInterface]InternalPrefix]  in 2.1660 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet 2'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet 2' is '127.0.0.1'. (NETC0013)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: DNS server addresses are not correct. Expected "192.168.99.10", actual "127.0.0.1".
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]InternalDNS]  in 0.4870 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Set-TargetResource: Applying the IPv4 DNS server addresses "192.168.99.10" to "Ethernet 2".
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Set-TargetResource: DNS server addresses were set to the desired state.
+[BB-DC01]: LCM:  [ End    Set      ]  [[DnsServerAddress]InternalDNS]  in 6.2220 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Checking connection suffix matches 'barmbuzz.corp'.
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Property 'Ensure' does NOT match. Expected 'Present', actual 'Absent'.
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Property 'UseSuffixWhenRegistering' does NOT match. Expected 'True', actual 'False'.
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Resource is NOT in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]  in 0.2740 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Setting connection suffix 'barmbuzz.corp' on interface 'Ethernet 2'.
+[BB-DC01]: LCM:  [ End    Set      ]  [[DnsConnectionSuffix]EnableInternalRegistration]  in 1.1920 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: Checking the 'Ethernet 2' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: 'Ethernet 2' Inerface 'ms_tcpip6' Binding does NOT match desired state. Expected 'Disabled', actual 'Enabled'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6]  in 1.6160 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Set-TargetResource: Applying the 'Ethernet 2' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Disable-NetAdapterBinding 'Ethernet 2' -DisplayName 'Internet Protocol Version 6 (TCP/IPv6)'
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Set-TargetResource: 'Ethernet 2' Inerface 'ms_tcpip6' Binding was Disabled.
+[BB-DC01]: LCM:  [ End    Set      ]  [[NetAdapterBinding]DisableIPv6]  in 3.1720 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet' is '127.0.0.1'. (NETC0013)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: DNS server addresses are not correct. Expected "", actual "127.0.0.1".
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]NATDNS]  in 0.4320 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Set-TargetResource: Applying the IPv4 DNS server addresses "" to "Ethernet".
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Set-TargetResource: DNS server addresses were set to the desired state.
+[BB-DC01]: LCM:  [ End    Set      ]  [[DnsServerAddress]NATDNS]  in 2.1590 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Checking connection suffix matches 'local'.
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Property 'Ensure' does NOT match. Expected 'Present', actual 'Absent'.
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Resource is NOT in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]  in 0.2910 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Setting connection suffix 'local' on interface 'Ethernet'.
+[BB-DC01]: LCM:  [ End    Set      ]  [[DnsConnectionSuffix]DisableNatRegistration]  in 1.1080 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: Checking the 'Ethernet' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: 'Ethernet' Inerface 'ms_tcpip6' Binding does NOT match desired state. Expected 'Disabled', actual 'Enabled'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6NAT]  in 0.9490 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Set-TargetResource: Applying the 'Ethernet' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Disable-NetAdapterBinding 'Ethernet' -DisplayName 'Internet Protocol Version 6 (TCP/IPv6)'
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Set-TargetResource: 'Ethernet' Inerface 'ms_tcpip6' Binding was Disabled.
+[BB-DC01]: LCM:  [ End    Set      ]  [[NetAdapterBinding]DisableIPv6NAT]  in 3.1980 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]ADDS]
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' started: AD-Domain-Services
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' succeeded: AD-Domain-Services
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]ADDS]  in 9.1040 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' started: RSAT-AD-Tools
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' succeeded: RSAT-AD-Tools
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]RSAT-ADDS]  in 3.3220 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomain]CreateForest]
+[BB-DC01]:                            [[ADDomain]CreateForest] Querying for domain 'barmbuzz.corp'. (ADD0001)
+[BB-DC01]:                            [[ADDomain]CreateForest] Active Directory domain 'barmbuzz.corp' found. (ADD0003)
+[BB-DC01]:                            [[ADDomain]CreateForest] The domain 'barmbuzz.corp' is in the desired state. (ADD0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomain]CreateForest]  in 4.7410 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Determining the current state of the Active Directory domain 'barmbuzz.corp'. (WFADD0013)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (WFADD0001)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Impersonating the credentials 'BARMBUZZ\Administrator' when looking for a domain controller. (WFADD0011)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0052)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Get a new Active Directory context of the type 'Domain'. (ADCOMMON0046)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will target 'barmbuzz.corp'. (ADCOMMON0047)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will be accessed using the 'BARMBUZZ\Administrator' credentials. (ADCOMMON0048)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0049)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found domain controller. (WFADD0009)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Domain 'barmbuzz.corp' is in the desired state. (WFADD0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[WaitForADDomain]WaitForBarmBuzz]  in 0.4460 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] Retrieving OU 'BarmBuzz' from path 'DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]  in 0.8300 seconds.
+PowerShell DSC resource MSFT_ADOrganizationalUnit  failed to execute Test-TargetResource functionality with error 
+message: System.InvalidOperationException: Error getting OU 'BarmBuzz'. (ADOU0014) ---> 
+System.Security.Authentication.AuthenticationException: Either the target name is incorrect or the server has rejected 
+the client credentials. ---> System.ServiceModel.Security.SecurityNegotiationException: Either the target name is 
+incorrect or the server has rejected the client credentials. ---> 
+System.Security.Authentication.InvalidCredentialException: Either the target name is incorrect or the server has 
+rejected the client credentials. ---> System.ComponentModel.Win32Exception: The logon attempt failed
+   --- End of inner exception stack trace ---
+   at System.Net.Security.NegoState.StartSendAuthResetSignal(LazyAsyncResult lazyResult, Byte[] message, Exception 
+exception)
+   at System.Net.Security.NegoState.StartSendBlob(Byte[] message, LazyAsyncResult lazyResult)
+   at System.Net.Security.NegoState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.NegotiateStream.AuthenticateAsClient(NetworkCredential credential, String targetName, 
+ProtectionLevel requiredProtectionLevel, TokenImpersonationLevel allowedImpersonationLevel)
+   at System.ServiceModel.Channels.WindowsStreamSecurityUpgradeProvider.WindowsStreamSecurityUpgradeInitiator.OnInitiate
+Upgrade(Stream stream, SecurityMessageProperty& remoteSecurity)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.WindowsStreamSecurityUpgradeProvider.WindowsStreamSecurityUpgradeInitiator.OnInitiate
+Upgrade(Stream stream, SecurityMessageProperty& remoteSecurity)
+   at System.ServiceModel.Channels.StreamSecurityUpgradeInitiatorBase.InitiateUpgrade(Stream stream)
+   at System.ServiceModel.Channels.ConnectionUpgradeHelper.InitiateUpgrade(StreamUpgradeInitiator upgradeInitiator, 
+IConnection& connection, ClientFramingDecoder decoder, IDefaultCommunicationTimeouts defaultTimeouts, TimeoutHelper& 
+timeoutHelper)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, 
+ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(I
+Connection connection, TimeoutHelper& timeoutHelper)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Cal
+l(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, 
+Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, 
+ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Microsoft.ActiveDirectory.WebServices.Proxy.Resource.Get(Message request)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.SearchAnObject(ADSearchRequest request)
+   --- End of inner exception stack trace ---
+   at 
+Microsoft.ActiveDirectory.Management.AdwsConnection.ThrowAuthenticationRelatedExceptionIfAny(CommunicationException 
+exception)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.SearchAnObject(ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.Search(ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.ADWebServiceStoreAccess.Microsoft.ActiveDirectory.Management.IADSyncOperation
+s.Search(ADSessionHandle handle, ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.ADObjectSearcher.GetRootDSE()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetRootDSE()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetConnectedStore()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetCmdletSessionInfo()
+   at Microsoft.ActiveDirectory.Management.Commands.ADGetCmdletBase`3.ADGetCmdletBaseBeginCSRoutine()
+   at Microsoft.ActiveDirectory.Management.CmdletSubroutinePipeline.Invoke()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.BeginProcessing()
+   --- End of inner exception stack trace --- 
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : ProviderOperationExecutionFailure
+    + PSComputerName        : localhost
+PowerShell DSC resource MSFT_ADOrganizationalUnit  failed to execute Test-TargetResource functionality with error message: System.InvalidOperationException: Error getting OU 'BarmBuzz'. (ADOU0014) --->
+System.Security.Authentication.AuthenticationException: Either the target name is incorrect or the server has rejected the client credentials. ---> System.ServiceModel.Security.SecurityNegotiationException:
+Either the target name is incorrect or the server has rejected the client credentials. ---> System.Security.Authentication.InvalidCredentialException: Either the target name is incorrect or the server has
+rejected the client credentials. ---> System.ComponentModel.Win32Exception: The logon attempt failed
+   --- End of inner exception stack trace ---
+   at System.Net.Security.NegoState.StartSendAuthResetSignal(LazyAsyncResult lazyResult, Byte[] message, Exception exception)
+   at System.Net.Security.NegoState.StartSendBlob(Byte[] message, LazyAsyncResult lazyResult)
+   at System.Net.Security.NegoState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.NegotiateStream.AuthenticateAsClient(NetworkCredential credential, String targetName, ProtectionLevel requiredProtectionLevel, TokenImpersonationLevel allowedImpersonationLevel)
+   at System.ServiceModel.Channels.WindowsStreamSecurityUpgradeProvider.WindowsStreamSecurityUpgradeInitiator.OnInitiateUpgrade(Stream stream, SecurityMessageProperty& remoteSecurity)
+   --- End of inner exception stack trace ---
+
+Server stack trace:
+   at System.ServiceModel.Channels.WindowsStreamSecurityUpgradeProvider.WindowsStreamSecurityUpgradeInitiator.OnInitiateUpgrade(Stream stream, SecurityMessageProperty& remoteSecurity)
+   at System.ServiceModel.Channels.StreamSecurityUpgradeInitiatorBase.InitiateUpgrade(Stream stream)
+   at System.ServiceModel.Channels.ConnectionUpgradeHelper.InitiateUpgrade(StreamUpgradeInitiator upgradeInitiator, IConnection& connection, ClientFramingDecoder decoder, IDefaultCommunicationTimeouts
+defaultTimeouts, TimeoutHelper& timeoutHelper)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]:
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Microsoft.ActiveDirectory.WebServices.Proxy.Resource.Get(Message request)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.SearchAnObject(ADSearchRequest request)
+   --- End of inner exception stack trace ---
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.ThrowAuthenticationRelatedExceptionIfAny(CommunicationException exception)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.SearchAnObject(ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.AdwsConnection.Search(ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.ADWebServiceStoreAccess.Microsoft.ActiveDirectory.Management.IADSyncOperations.Search(ADSessionHandle handle, ADSearchRequest request)
+   at Microsoft.ActiveDirectory.Management.ADObjectSearcher.GetRootDSE()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetRootDSE()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetConnectedStore()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.GetCmdletSessionInfo()
+   at Microsoft.ActiveDirectory.Management.Commands.ADGetCmdletBase`3.ADGetCmdletBaseBeginCSRoutine()
+   at Microsoft.ActiveDirectory.Management.CmdletSubroutinePipeline.Invoke()
+   at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.BeginProcessing()
+   --- End of inner exception stack trace ---
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : ProviderOperationExecutionFailure
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Querying Active Directory domain 'barmbuzz.corp' default password policy. (ADDDPP0001)
+Either the target name is incorrect or the server has rejected the client credentials.
+    + CategoryInfo          : SecurityError: (barmbuzz.corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:System.Security.Authentication.AuthenticationException,Microsoft.Act
+iveDirectory.Management.Commands.GetADDefaultDomainPasswordPolicy
+    + PSComputerName        : localhost
+Either the target name is incorrect or the server has rejected the client credentials.
+    + CategoryInfo          : SecurityError: (barmbuzz.corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:System.Security.Authentication.AuthenticationException,Microsoft.ActiveDirectory.Management.Commands.GetADDefaultDomainPasswordPolicy
+    + PSComputerName        : localhost
+
+Cannot process argument transformation on parameter 'TimeSpan'. Cannot convert null to type "System.TimeSpan".
+    + CategoryInfo          : InvalidData: (:) [], CimException
+    + FullyQualifiedErrorId : ParameterArgumentTransformationError,ConvertFrom-TimeSpan
+    + PSComputerName        : localhost
+Cannot process argument transformation on parameter 'TimeSpan'. Cannot convert null to type "System.TimeSpan".
+    + CategoryInfo          : InvalidData: (:) [], CimException
+    + FullyQualifiedErrorId : ParameterArgumentTransformationError,ConvertFrom-TimeSpan
+    + PSComputerName        : localhost
+
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'ComplexityEnabled' value is incorrect; expected 'True', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutDuration' value is incorrect; expected '30', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutObservationWindow' value is incorrect; expected '30', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutThreshold' value is incorrect; expected '5', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'MinPasswordAge' value is incorrect; expected '1440', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'MaxPasswordAge' value is incorrect; expected '129600', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'MinPasswordLength' value is incorrect; expected '10', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'PasswordHistoryCount' value is incorrect; expected '12', actual ''. (ADDDPP0004)
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+Cannot index into a null array.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NullArray
+    + PSComputerName        : localhost
+
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'ReversibleEncryptionEnabled' value is incorrect; expected 'False', actual ''. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Resource 'barmbuzz.corp' is NOT in the desired state. (ADDDPP0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]  in 0.3680 seconds.
+The PowerShell DSC resource '[ADDomainDefaultPasswordPolicy]SetPasswordPolicy' with SourceInfo 
+'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::332::9::ADDomainDefaultPasswordPolicy' threw 
+one or more non-terminating errors while running the Test-TargetResource functionality. These errors are logged to the 
+ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+The PowerShell DSC resource '[ADDomainDefaultPasswordPolicy]SetPasswordPolicy' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::332::9::ADDomainDefaultPasswordPolicy'
+threw one or more non-terminating errors while running the Test-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for
+more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]GPMC]
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' started: GPMC
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' succeeded: GPMC
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]GPMC]  in 1.0010 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]  in 1.1120 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]  in 1.1780 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]  in 0.0460 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]  in 0.2600 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]  in 0.0290 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]  in 0.3370 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]  in 0.1070 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]  in 0.3220 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]  in 0.1150 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]  in 0.1830 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]  in 0.0780 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]  in 0.2210 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]  in 0.0710 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]  in 0.0860 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]  in 0.0590 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]  in 0.2830 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]  in 0.2020 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]  in 0.2650 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]  in 0.3950 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]  in 0.4630 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]  in 0.2240 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_POS_NoUSB]  in 0.5550 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]  in 0.1530 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]  in 0.0980 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]  in 0.0430 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_Banner_Title]  in 0.1890 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]  in 0.0940 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPRegistryValue]GPOReg_Banner_Text]  in 0.3060 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 0.5010 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+The operation cannot be completed because "GG_BB_Bolton_Baristas" is not a valid security group in the barmbuzz.corp 
+domain. Make sure that the TargetName and TargetType parameters specify a valid security group for the domain. Then, 
+run the command again.
+Parameter name: targetName
+    + CategoryInfo          : NotSpecified: (:) [], CimException
+    + FullyQualifiedErrorId : System.ArgumentException,Microsoft.GroupPolicy.Commands.SetGPPermissionsCommand
+    + PSComputerName        : localhost
+The operation cannot be completed because "GG_BB_Bolton_Baristas" is not a valid security group in the barmbuzz.corp domain. Make sure that the TargetName and TargetType parameters specify a valid security
+group for the domain. Then, run the command again.
+Parameter name: targetName
+    + CategoryInfo          : NotSpecified: (:) [], CimException
+    + FullyQualifiedErrorId : System.ArgumentException,Microsoft.GroupPolicy.Commands.SetGPPermissionsCommand
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 0.2730 seconds.
+The PowerShell DSC resource '[GPPermission]GPOPerm_Perm_POS_Baristas' with SourceInfo 
+'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::403::13::GPPermission' threw one or more 
+non-terminating errors while running the Set functionality. These errors are logged to the ETW channel called 
+Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+The PowerShell DSC resource '[GPPermission]GPOPerm_Perm_POS_Baristas' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::403::13::GPPermission' threw one or more
+non-terminating errors while running the Set functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ End    Set      ]
+The SendConfigurationApply function did not succeed.
+    + CategoryInfo          : NotSpecified: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : MI RESULT 1
+    + PSComputerName        : localhost
+The SendConfigurationApply function did not succeed.
+    + CategoryInfo          : NotSpecified: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : MI RESULT 1
+    + PSComputerName        : localhost
+
+Operation 'Invoke CimMethod' complete.
+Time taken for configuration job to complete is 114.552 seconds
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260306_123544\
+**********************
+Windows PowerShell transcript end
+End time: 20260306123932
+**********************
