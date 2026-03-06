@@ -1,0 +1,743 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260306133450
+Username: BarmBuzz\Administrator
+RunAs User: BarmBuzz\Administrator
+Configuration Name: 
+Machine: BB-DC01 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 5284
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260306_133450_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+Perform operation 'Invoke CimMethod' with following parameters, ''methodName' = SendConfigurationApply,'className' = MSFT_DSCLocalConfigurationManager,'namespaceName' =
+root/Microsoft/Windows/DesiredStateConfiguration'.
+An LCM method call arrived from computer BB-DC01 with user sid S-1-5-21-801708204-2140448719-2328611195-500.
+[BB-DC01]: LCM:  [ Start  Set      ]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Computer]SetName]
+[BB-DC01]:                            [[Computer]SetName] Testing computer state for 'BB-DC01'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Computer]SetName]  in 0.1590 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[TimeZone]SetTimeZone]
+[BB-DC01]:                            [[TimeZone]SetTimeZone] Testing the time zone.
+[BB-DC01]: LCM:  [ End    Test     ]  [[TimeZone]SetTimeZone]  in 0.3440 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ End    Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Service]WindowsTime]
+[BB-DC01]:                            [[Service]WindowsTime] Perform operation 'Query CimInstances' with following parameters, ''queryExpression' = SELECT * FROM Win32_Service WHERE
+Name='W32Time','queryDialect' = WQL,'namespaceName' = root\cimv2'.
+[BB-DC01]:                            [[Service]WindowsTime] Operation 'Query CimInstances' complete.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Service]WindowsTime]  in 1.3900 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[IPAddress]InternalIP]
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Checking the IP Address.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: IP Address is in desired state.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Prefix Length is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[IPAddress]InternalIP]  in 4.3230 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ End    Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Test-TargetResource: Checking settings on net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-TargetResource: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AdvertiseDefaultRoute' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Advertising' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AutomaticMetric' is 'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'DirectedMacWolPattern' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Dhcp' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'EcnMarking' is 'AppDecide'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ForceArpNdWolPattern' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Forwarding' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'IgnoreDefaultRoutes' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ManagedAddressConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NeighborUnreachabilityDetection' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'OtherStatefulConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'RouterDiscovery' is
+'ControlledByDHCP'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostReceive' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostSend' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NlMtu' is '1500'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'InterfaceMetric' is '25'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetIPInterface]InternalPrefix]  in 1.2680 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet 2'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet 2' is '192.168.99.10'.
+(NETC0013)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: DNS server addresses are set correctly.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]InternalDNS]  in 0.1600 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Checking connection suffix matches 'barmbuzz.corp'.
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Resource is in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]  in 1.1070 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: Checking the 'Ethernet 2' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: 'Ethernet 2' Inerface 'ms_tcpip6' Binding is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6]  in 0.4090 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet' is not set. (NETC0011)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: DNS server addresses are set correctly.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]NATDNS]  in 0.0570 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Checking connection suffix matches 'local'.
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Resource is in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]  in 0.0440 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: Checking the 'Ethernet' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: 'Ethernet' Inerface 'ms_tcpip6' Binding is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6NAT]  in 0.1900 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]ADDS]
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' started: AD-Domain-Services
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' succeeded: AD-Domain-Services
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]ADDS]  in 3.1330 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' started: RSAT-AD-Tools
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' succeeded: RSAT-AD-Tools
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]RSAT-ADDS]  in 3.6650 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomain]CreateForest]
+[BB-DC01]:                            [[ADDomain]CreateForest] Querying for domain 'barmbuzz.corp'. (ADD0001)
+[BB-DC01]:                            [[ADDomain]CreateForest] Active Directory domain 'barmbuzz.corp' found. (ADD0003)
+[BB-DC01]:                            [[ADDomain]CreateForest] The domain 'barmbuzz.corp' is in the desired state. (ADD0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomain]CreateForest]  in 25.7280 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Determining the current state of the Active Directory domain 'barmbuzz.corp'. (WFADD0013)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (WFADD0001)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Impersonating the credentials 'BARMBUZZ\Administrator' when looking for a domain controller. (WFADD0011)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0052)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Get a new Active Directory context of the type 'Domain'. (ADCOMMON0046)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will target 'barmbuzz.corp'. (ADCOMMON0047)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will be accessed using the 'BARMBUZZ\Administrator' credentials. (ADCOMMON0048)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0049)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found domain controller. (WFADD0009)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Domain 'barmbuzz.corp' is in the desired state. (WFADD0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[WaitForADDomain]WaitForBarmBuzz]  in 0.1890 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] Retrieving OU 'BarmBuzz' from path 'DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The OU 'BarmBuzz' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] OU 'BarmBuzz' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]  in 0.1100 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] Retrieving OU 'BarmBuzz' from path 'DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The OU 'BarmBuzz' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] Creating OU 'BarmBuzz'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_BarmBuzz]  in 0.3030 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] Retrieving OU 'Tier0' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The OU 'Tier0' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] OU 'Tier0' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0]  in 0.1580 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] Retrieving OU 'Tier0' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The OU 'Tier0' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] Creating OU 'Tier0'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Tier0]  in 0.3030 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] Retrieving OU 'Admins' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The OU 'Admins' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] OU 'Admins' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_Admins]  in 0.1450 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] Retrieving OU 'Admins' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The OU 'Admins' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] Creating OU 'Admins'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Tier0_Admins]  in 0.1150 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] Retrieving OU 'Servers' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The OU 'Servers' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] OU 'Servers' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_Servers]  in 0.1590 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] Retrieving OU 'Servers' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The OU 'Servers' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] Creating OU 'Servers'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Tier0_Servers]  in 0.2700 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] Retrieving OU 'ServiceAccounts' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The OU 'ServiceAccounts' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] OU 'ServiceAccounts' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]  in 0.1170 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] Retrieving OU 'ServiceAccounts' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The OU 'ServiceAccounts' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] Creating OU 'ServiceAccounts'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]  in 0.2690 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] Retrieving OU 'Sites' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The OU 'Sites' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] OU 'Sites' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Sites]  in 0.0750 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] Retrieving OU 'Sites' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The OU 'Sites' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] Creating OU 'Sites'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Sites]  in 0.1560 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] Retrieving OU 'Bolton' from path 'OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The OU 'Bolton' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] OU 'Bolton' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton]  in 0.0900 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] Retrieving OU 'Bolton' from path 'OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The OU 'Bolton' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] Creating OU 'Bolton'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton]  in 0.2940 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] Retrieving OU 'Users' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The OU 'Users' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] OU 'Users' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Users]  in 0.0940 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] Retrieving OU 'Users' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The OU 'Users' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] Creating OU 'Users'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton_Users]  in 0.1260 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] Retrieving OU 'Computers' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The OU 'Computers' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] OU 'Computers' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Computers]  in 0.1320 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] Retrieving OU 'Computers' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The OU 'Computers' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] Creating OU 'Computers'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton_Computers]  in 0.1180 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] Retrieving OU 'Workstations' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The OU 'Workstations' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] OU 'Workstations' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]  in 0.1750 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] Retrieving OU 'Workstations' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The OU 'Workstations' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] Creating OU 'Workstations'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]  in 0.2680 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] Retrieving OU 'POS' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The OU 'POS' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] OU 'POS' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_POS]  in 0.0670 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] Retrieving OU 'POS' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The OU 'POS' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] Creating OU 'POS'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton_POS]  in 0.0910 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] Retrieving OU 'Kiosks' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The OU 'Kiosks' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] OU 'Kiosks' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]  in 0.0960 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] Retrieving OU 'Kiosks' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The OU 'Kiosks' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] Creating OU 'Kiosks'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]  in 0.1870 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] Retrieving OU 'Groups' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The OU 'Groups' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] OU 'Groups' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups]  in 0.0790 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] Retrieving OU 'Groups' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The OU 'Groups' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] Creating OU 'Groups'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Groups]  in 0.2050 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] Retrieving OU 'Role' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The OU 'Role' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] OU 'Role' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups_Role]  in 0.1630 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] Retrieving OU 'Role' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The OU 'Role' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] Creating OU 'Role'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Groups_Role]  in 0.2900 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] Retrieving OU 'Resource' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The OU 'Resource' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] OU 'Resource' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups_Resource]  in 0.0450 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] Retrieving OU 'Resource' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The OU 'Resource' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] Creating OU 'Resource'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Groups_Resource]  in 0.1800 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] Retrieving OU 'Clients' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The OU 'Clients' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] OU 'Clients' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients]  in 0.0820 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] Retrieving OU 'Clients' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The OU 'Clients' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] Creating OU 'Clients'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Clients]  in 0.3080 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] Retrieving OU 'Windows' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The OU 'Windows' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] OU 'Windows' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients_Windows]  in 0.3640 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] Retrieving OU 'Windows' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The OU 'Windows' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] Creating OU 'Windows'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Clients_Windows]  in 0.3100 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] Retrieving OU 'Linux' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The OU 'Linux' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] OU 'Linux' does not exist when it should exist. (ADOU0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients_Linux]  in 0.1040 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] Retrieving OU 'Linux' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The OU 'Linux' is absent. (ADOU0012)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] Creating OU 'Linux'. (ADOU0004)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADOrganizationalUnit]OU_Clients_Linux]  in 0.2020 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Retrieving AD Group 'GG_BB_Bolton_Baristas'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The AD Group 'GG_BB_Bolton_Baristas' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] AD Group 'GG_BB_Bolton_Baristas' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Baristas]  in 0.3290 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Retrieving AD Group 'GG_BB_Bolton_Baristas'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The AD Group 'GG_BB_Bolton_Baristas' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Creating AD Group 'GG_BB_Bolton_Baristas'. (ADG0005)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_GG_Bolton_Baristas]  in 0.2360 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Retrieving AD Group 'GG_BB_Bolton_Managers'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The AD Group 'GG_BB_Bolton_Managers' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] AD Group 'GG_BB_Bolton_Managers' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Managers]  in 0.1950 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Retrieving AD Group 'GG_BB_Bolton_Managers'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The AD Group 'GG_BB_Bolton_Managers' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Creating AD Group 'GG_BB_Bolton_Managers'. (ADG0005)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_GG_Bolton_Managers]  in 0.3860 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Retrieving AD Group 'GG_BB_IT_Helpdesk'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The AD Group 'GG_BB_IT_Helpdesk' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] AD Group 'GG_BB_IT_Helpdesk' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Helpdesk]  in 0.0520 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Retrieving AD Group 'GG_BB_IT_Helpdesk'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The AD Group 'GG_BB_IT_Helpdesk' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Creating AD Group 'GG_BB_IT_Helpdesk'. (ADG0005)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_GG_Bolton_Helpdesk]  in 0.0990 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Retrieving AD Group 'DL_BB_POS_LocalAdmins'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The AD Group 'DL_BB_POS_LocalAdmins' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] AD Group 'DL_BB_POS_LocalAdmins' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_POS_LocalAdmins]  in 0.1750 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Retrieving AD Group 'DL_BB_POS_LocalAdmins'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The AD Group 'DL_BB_POS_LocalAdmins' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Creating AD Group 'DL_BB_POS_LocalAdmins'. (ADG0005)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Adding 'GG_BB_Bolton_Baristas' member(s) to AD group 'DL_BB_POS_LocalAdmins'. (ADG0003)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_DL_POS_LocalAdmins]  in 0.6240 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Retrieving AD Group 'DL_BB_Recipes_Read'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The AD Group 'DL_BB_Recipes_Read' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] AD Group 'DL_BB_Recipes_Read' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_Recipes_Read]  in 0.0790 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Retrieving AD Group 'DL_BB_Recipes_Read'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The AD Group 'DL_BB_Recipes_Read' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Creating AD Group 'DL_BB_Recipes_Read'. (ADG0005)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Adding 'GG_BB_Bolton_Baristas, GG_BB_Bolton_Managers' member(s) to AD group 'DL_BB_Recipes_Read'. (ADG0003)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_DL_Recipes_Read]  in 0.4120 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Retrieving AD Group 'DL_BB_Recipes_Write'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The AD Group 'DL_BB_Recipes_Write' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] AD Group 'DL_BB_Recipes_Write' does not exist but should. (ADG0016)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_Recipes_Write]  in 0.1910 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Retrieving AD Group 'DL_BB_Recipes_Write'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The AD Group 'DL_BB_Recipes_Write' is absent. (ADG0024)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Creating AD Group 'DL_BB_Recipes_Write'. (ADG0005)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Adding 'GG_BB_Bolton_Managers' member(s) to AD group 'DL_BB_Recipes_Write'. (ADG0003)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADGroup]Group_DL_Recipes_Write]  in 0.3670 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Retrieved the AD Drive full PSPath of 'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/'.
+(OPE0008)
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Object permission entry not found on object
+'OU=Workstations,OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz,DC=barmbuzz,DC=corp'. (OPE0002)
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Object permission entry on object 'OU=Workstations,OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz,DC=barmbuzz,DC=corp'
+is not in the desired state. (OPE0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]  in 1.4240 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Retrieved the AD Drive full PSPath of 'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/'.
+(OPE0008)
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Adding object permission entry to object
+'OU=Workstations,OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz,DC=barmbuzz,DC=corp'. (OPE0003)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]  in 0.2400 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_ava_barista]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_ava_barista]
+[BB-DC01]:                            [[ADUser]User_ava_barista] Retrieving 'ava_barista' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is absent but should be present. (ADU0012)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_ava_barista]  in 0.3260 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_ava_barista]
+[BB-DC01]:                            [[ADUser]User_ava_barista] Retrieving 'ava_barista' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_ava_barista] Adding 'ava_barista to domain 'barmbuzz.corp'. (ADU0014)
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=ava_barista,...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=ava_barista,...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_ava_barista]  in 1.0360 seconds.
+The PowerShell DSC resource '[ADUser]User_ava_barista' with SourceInfo 
+'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more 
+non-terminating errors while running the Set-TargetResource functionality. These errors are logged to the ETW channel 
+called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+The PowerShell DSC resource '[ADUser]User_ava_barista' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more non-terminating errors while
+running the Set-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_bob_manager]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_bob_manager]
+[BB-DC01]:                            [[ADUser]User_bob_manager] Retrieving 'bob_manager' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is absent but should be present. (ADU0012)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_bob_manager]  in 0.0690 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_bob_manager]
+[BB-DC01]:                            [[ADUser]User_bob_manager] Retrieving 'bob_manager' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_bob_manager] Adding 'bob_manager to domain 'barmbuzz.corp'. (ADU0014)
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=bob_manager,...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=bob_manager,...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_bob_manager]  in 0.2130 seconds.
+The PowerShell DSC resource '[ADUser]User_bob_manager' with SourceInfo 
+'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more 
+non-terminating errors while running the Set-TargetResource functionality. These errors are logged to the ETW channel 
+called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+The PowerShell DSC resource '[ADUser]User_bob_manager' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more non-terminating errors while
+running the Set-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Retrieving 'charlie_helpdesk' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is absent but should be present. (ADU0012)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_charlie_helpdesk]  in 0.0800 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Retrieving 'charlie_helpdesk' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is not present in domain 'barmbuzz.corp'. (ADU0008)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Adding 'charlie_helpdesk to domain 'barmbuzz.corp'. (ADU0014)
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=charlie_help...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+The password does not meet the length, complexity, or history requirement of the domain.
+    + CategoryInfo          : InvalidData: (CN=charlie_help...armbuzz,DC=corp:) [], CimException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1325,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_charlie_helpdesk]  in 0.2110 seconds.
+The PowerShell DSC resource '[ADUser]User_charlie_helpdesk' with SourceInfo 
+'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more 
+non-terminating errors while running the Set-TargetResource functionality. These errors are logged to the ETW channel 
+called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+The PowerShell DSC resource '[ADUser]User_charlie_helpdesk' with SourceInfo 'C:\Dev\repos\COM5411_PreDC-Promo\DSC\Configurations\StudentConfig.ps1::267::13::ADUser' threw one or more non-terminating errors
+while running the Set-TargetResource functionality. These errors are logged to the ETW channel called Microsoft-Windows-DSC/Operational. Refer to this channel for more details.
+    + CategoryInfo          : InvalidOperation: (:) [], CimException
+    + FullyQualifiedErrorId : NonTerminatingErrorFromProvider
+    + PSComputerName        : localhost
+
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Querying Active Directory domain 'barmbuzz.corp' default password policy. (ADDDPP0001)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutDuration' value is incorrect; expected '30', actual '10'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutObservationWindow' value is incorrect; expected '30', actual '10'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'LockoutThreshold' value is incorrect; expected '5', actual '0'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'MaxPasswordAge' value is incorrect; expected '129600', actual '60480'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'MinPasswordLength' value is incorrect; expected '10', actual '7'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Property 'PasswordHistoryCount' value is incorrect; expected '12', actual '24'. (ADDDPP0004)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Resource 'barmbuzz.corp' is NOT in the desired state. (ADDDPP0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]  in 0.6540 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'ComplexityEnabled' property to 'True'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'LockoutDuration' property to '00:30:00'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'LockoutObservationWindow' property to '00:30:00'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'LockoutThreshold' property to '5'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'MinPasswordAge' property to '1.00:00:00'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'MaxPasswordAge' property to '90.00:00:00'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'MinPasswordLength' property to '10'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'PasswordHistoryCount' property to '12'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Setting password policy 'ReversibleEncryptionEnabled' property to 'False'. (ADDDPP0003)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Updating Active Directory domain 'barmbuzz.corp' default password policy. (ADDDPP0002)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]  in 0.9180 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]GPMC]
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' started: GPMC
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' succeeded: GPMC
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]GPMC]  in 2.2700 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]  in 0.8580 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]  in 0.0830 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]  in 0.0670 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]  in 0.0820 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]  in 0.2650 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]  in 51.7980 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]  in 0.3220 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]  in 26.4990 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_POSLockdown_POS]  in 0.7550 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPLink]GPLink_Link_POSLockdown_POS]  in 54.7390 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]  in 0.1430 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]  in 18.8040 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]  in 0.5370 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]  in 0.0940 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]  in 0.2190 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]  in 0.1020 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]  in 0.1120 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]  in 0.1540 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]  in 0.0660 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]  in 0.0720 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]  in 0.0550 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]  in 0.2880 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 44.9550 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 107.1430 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Set      ]
+The SendConfigurationApply function did not succeed.
+    + CategoryInfo          : NotSpecified: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : MI RESULT 1
+    + PSComputerName        : localhost
+The SendConfigurationApply function did not succeed.
+    + CategoryInfo          : NotSpecified: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : MI RESULT 1
+    + PSComputerName        : localhost
+
+Operation 'Invoke CimMethod' complete.
+Time taken for configuration job to complete is 362.71 seconds
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260306_133450\
+**********************
+Windows PowerShell transcript end
+End time: 20260306134214
+**********************
