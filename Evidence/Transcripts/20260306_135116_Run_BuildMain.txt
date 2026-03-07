@@ -1,0 +1,724 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260306135116
+Username: BarmBuzz\Administrator
+RunAs User: BarmBuzz\Administrator
+Configuration Name: 
+Machine: BB-DC01 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 5284
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[+] Transcript started: Evidence\\Transcripts\\20260306_135116_Run_BuildMain.txt
+[+] Admin privileges confirmed.
+
+[Phase 1] Prerequisites...
+[*] Invoke-BarmBuzz-OneShots: LCM then Network
+[*] LCM already configured (flag present).
+[*] Network already configured (flag present).
+[*] LCM already configured (skipping).
+[*] Network already configured (skipping).
+[+] Phase 1 complete.
+
+[Phase 2] Compile + Apply DSC...
+[+] Found configuration: StudentBaseline
+[*] Compiling -> DSC\\Outputs\\StudentBaseline
+[+] Compilation complete.
+[*] Applying configuration (waits until complete)...
+Perform operation 'Invoke CimMethod' with following parameters, ''methodName' = SendConfigurationApply,'className' = MSFT_DSCLocalConfigurationManager,'namespaceName' =
+root/Microsoft/Windows/DesiredStateConfiguration'.
+An LCM method call arrived from computer BB-DC01 with user sid S-1-5-21-801708204-2140448719-2328611195-500.
+[BB-DC01]: LCM:  [ Start  Set      ]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Computer]SetName]
+[BB-DC01]:                            [[Computer]SetName] Testing computer state for 'BB-DC01'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Computer]SetName]  in 0.0440 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Computer]SetName]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[TimeZone]SetTimeZone]
+[BB-DC01]:                            [[TimeZone]SetTimeZone] Testing the time zone.
+[BB-DC01]: LCM:  [ End    Test     ]  [[TimeZone]SetTimeZone]  in 0.5160 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ End    Resource ]  [[TimeZone]SetTimeZone]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Service]WindowsTime]
+[BB-DC01]:                            [[Service]WindowsTime] Perform operation 'Query CimInstances' with following parameters, ''queryExpression' = SELECT * FROM Win32_Service WHERE
+Name='W32Time','queryDialect' = WQL,'namespaceName' = root\cimv2'.
+[BB-DC01]:                            [[Service]WindowsTime] Operation 'Query CimInstances' complete.
+[BB-DC01]: LCM:  [ End    Test     ]  [[Service]WindowsTime]  in 1.0990 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ End    Resource ]  [[Service]WindowsTime]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[IPAddress]InternalIP]
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Checking the IP Address.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: IP Address is in desired state.
+[BB-DC01]:                            [[IPAddress]InternalIP] Test-TargetResource: Prefix Length is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[IPAddress]InternalIP]  in 3.7730 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ End    Resource ]  [[IPAddress]InternalIP]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Test-TargetResource: Checking settings on net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-TargetResource: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Getting settings for net IP interface for alias 'Ethernet 2' and address family 'IPv4'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AdvertiseDefaultRoute' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Advertising' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'AutomaticMetric' is 'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'DirectedMacWolPattern' is
+'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Dhcp' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'EcnMarking' is 'AppDecide'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ForceArpNdWolPattern' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'Forwarding' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'IgnoreDefaultRoutes' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'ManagedAddressConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NeighborUnreachabilityDetection' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'OtherStatefulConfiguration' is
+'Enabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'RouterDiscovery' is
+'ControlledByDHCP'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostReceive' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'WeakHostSend' is 'Disabled'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'NlMtu' is '1500'.
+[BB-DC01]:                            [[NetIPInterface]InternalPrefix] Get-NetworkIPInterface: Net IP interface for alias 'Ethernet 2' and address family 'IPv4' parameter 'InterfaceMetric' is '25'.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetIPInterface]InternalPrefix]  in 0.7370 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetIPInterface]InternalPrefix]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet 2'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet 2' is '192.168.99.10'.
+(NETC0013)
+[BB-DC01]:                            [[DnsServerAddress]InternalDNS] Test-TargetResource: DNS server addresses are set correctly.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]InternalDNS]  in 0.1820 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]InternalDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Checking connection suffix matches 'barmbuzz.corp'.
+[BB-DC01]:                            [[DnsConnectionSuffix]EnableInternalRegistration] Resource is in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]EnableInternalRegistration]  in 1.2910 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]EnableInternalRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: Checking the 'Ethernet 2' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6] Test-TargetResource: 'Ethernet 2' Inerface 'ms_tcpip6' Binding is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6]  in 0.3280 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: Checking the DNS server addresses.
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Getting statically assigned DNS server IPv4 address for interface alias 'Ethernet'. (NETC0008)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Get-DnsClientServerStaticAddress: Statically assigned DNS server IPv4 address for interface alias 'Ethernet' is not set. (NETC0011)
+[BB-DC01]:                            [[DnsServerAddress]NATDNS] Test-TargetResource: DNS server addresses are set correctly.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsServerAddress]NATDNS]  in 0.0690 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsServerAddress]NATDNS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Checking connection suffix matches 'local'.
+[BB-DC01]:                            [[DnsConnectionSuffix]DisableNatRegistration] Resource is in the desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[DnsConnectionSuffix]DisableNatRegistration]  in 0.1750 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ End    Resource ]  [[DnsConnectionSuffix]DisableNatRegistration]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: Checking the 'Ethernet' Inerface 'ms_tcpip6' Binding.
+[BB-DC01]:                            [[NetAdapterBinding]DisableIPv6NAT] Test-TargetResource: 'Ethernet' Inerface 'ms_tcpip6' Binding is in desired state.
+[BB-DC01]: LCM:  [ End    Test     ]  [[NetAdapterBinding]DisableIPv6NAT]  in 0.3370 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ End    Resource ]  [[NetAdapterBinding]DisableIPv6NAT]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]ADDS]
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' started: AD-Domain-Services
+[BB-DC01]:                            [[WindowsFeature]ADDS] The operation 'Get-WindowsFeature' succeeded: AD-Domain-Services
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]ADDS]  in 2.1840 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' started: RSAT-AD-Tools
+[BB-DC01]:                            [[WindowsFeature]RSAT-ADDS] The operation 'Get-WindowsFeature' succeeded: RSAT-AD-Tools
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]RSAT-ADDS]  in 3.3080 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]RSAT-ADDS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomain]CreateForest]
+[BB-DC01]:                            [[ADDomain]CreateForest] Querying for domain 'barmbuzz.corp'. (ADD0001)
+[BB-DC01]:                            [[ADDomain]CreateForest] Active Directory domain 'barmbuzz.corp' found. (ADD0003)
+[BB-DC01]:                            [[ADDomain]CreateForest] The domain 'barmbuzz.corp' is in the desired state. (ADD0008)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomain]CreateForest]  in 25.4610 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADDomain]CreateForest]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Determining the current state of the Active Directory domain 'barmbuzz.corp'. (WFADD0013)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (WFADD0001)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Impersonating the credentials 'BARMBUZZ\Administrator' when looking for a domain controller. (WFADD0011)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Searching for a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0052)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Get a new Active Directory context of the type 'Domain'. (ADCOMMON0046)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will target 'barmbuzz.corp'. (ADCOMMON0047)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] The Active Directory context will be accessed using the 'BARMBUZZ\Administrator' credentials. (ADCOMMON0048)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found a domain controller in the domain 'barmbuzz.corp'. (ADCOMMON0049)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Found domain controller. (WFADD0009)
+[BB-DC01]:                            [[WaitForADDomain]WaitForBarmBuzz] Domain 'barmbuzz.corp' is in the desired state. (WFADD0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[WaitForADDomain]WaitForBarmBuzz]  in 0.3580 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WaitForADDomain]WaitForBarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] Retrieving OU 'BarmBuzz' from path 'DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The OU 'BarmBuzz' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_BarmBuzz] OU 'BarmBuzz' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_BarmBuzz]  in 0.2840 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] Retrieving OU 'Tier0' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The OU 'Tier0' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0] OU 'Tier0' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0]  in 0.0480 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] Retrieving OU 'Admins' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The OU 'Admins' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Admins] OU 'Admins' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_Admins]  in 0.1050 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_Admins]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] Retrieving OU 'Servers' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The OU 'Servers' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_Servers] OU 'Servers' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_Servers]  in 0.1840 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_Servers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] Retrieving OU 'ServiceAccounts' from path 'OU=Tier0,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The OU 'ServiceAccounts' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts] OU 'ServiceAccounts' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]  in 0.2750 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Tier0_ServiceAccounts]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] Retrieving OU 'Sites' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The OU 'Sites' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Sites] OU 'Sites' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Sites]  in 0.1980 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Sites]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] Retrieving OU 'Bolton' from path 'OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The OU 'Bolton' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton] OU 'Bolton' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton]  in 0.5940 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] Retrieving OU 'Users' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The OU 'Users' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Users] OU 'Users' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Users]  in 0.1970 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Users]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] Retrieving OU 'Computers' from path 'OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The OU 'Computers' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Computers] OU 'Computers' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Computers]  in 0.2150 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Computers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] Retrieving OU 'Workstations' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The OU 'Workstations' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Workstations] OU 'Workstations' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]  in 0.0630 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Workstations]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] Retrieving OU 'POS' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The OU 'POS' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_POS] OU 'POS' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_POS]  in 0.0620 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_POS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] Retrieving OU 'Kiosks' from path 'OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The OU 'Kiosks' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Bolton_Kiosks] OU 'Kiosks' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]  in 0.0650 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Bolton_Kiosks]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] Retrieving OU 'Groups' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The OU 'Groups' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups] OU 'Groups' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups]  in 0.0560 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] Retrieving OU 'Role' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The OU 'Role' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Role] OU 'Role' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups_Role]  in 0.0540 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups_Role]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] Retrieving OU 'Resource' from path 'OU=Groups,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The OU 'Resource' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Groups_Resource] OU 'Resource' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Groups_Resource]  in 0.1970 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Groups_Resource]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] Retrieving OU 'Clients' from path 'OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The OU 'Clients' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients] OU 'Clients' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients]  in 0.2610 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] Retrieving OU 'Windows' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The OU 'Windows' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Windows] OU 'Windows' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients_Windows]  in 0.1620 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients_Windows]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] Retrieving OU 'Linux' from path 'OU=Clients,OU=BarmBuzz, DC=barmbuzz,DC=corp'. (ADOU0001)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The OU 'Linux' is present. (ADOU0011)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The parameter 'ProtectedFromAccidentalDeletion' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The parameter 'Name' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADOrganizationalUnit]OU_Clients_Linux] OU 'Linux' exists and is in the desired state. (ADOU0006)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADOrganizationalUnit]OU_Clients_Linux]  in 0.1000 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADOrganizationalUnit]OU_Clients_Linux]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Retrieving AD Group 'GG_BB_Bolton_Baristas'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The AD Group 'GG_BB_Bolton_Baristas' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Baristas] AD Group 'GG_BB_Bolton_Baristas' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Baristas]  in 0.8230 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Retrieving AD Group 'GG_BB_Bolton_Managers'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The AD Group 'GG_BB_Bolton_Managers' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Managers] AD Group 'GG_BB_Bolton_Managers' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Managers]  in 0.1590 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Retrieving AD Group 'GG_BB_IT_Helpdesk'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The AD Group 'GG_BB_IT_Helpdesk' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_GG_Bolton_Helpdesk] AD Group 'GG_BB_IT_Helpdesk' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_GG_Bolton_Helpdesk]  in 0.2730 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Retrieving AD Group 'DL_BB_POS_LocalAdmins'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The AD Group 'DL_BB_POS_LocalAdmins' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Checking for 'Included' members. (ADCOMMON0019)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_POS_LocalAdmins] AD Group 'DL_BB_POS_LocalAdmins' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_POS_LocalAdmins]  in 74.7110 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_POS_LocalAdmins]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Retrieving AD Group 'DL_BB_Recipes_Read'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The AD Group 'DL_BB_Recipes_Read' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Checking for 'Included' members. (ADCOMMON0019)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Read] AD Group 'DL_BB_Recipes_Read' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_Recipes_Read]  in 72.3940 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_Recipes_Read]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Retrieving AD Group 'DL_BB_Recipes_Write'. (ADG0021)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The AD Group 'DL_BB_Recipes_Write' is present. (ADG0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Retrieving group membership based on 'SamAccountName' property. (ADG0001)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Checking for 'Included' members. (ADCOMMON0019)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] Membership is in the desired state. (ADCOMMON0023)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'Ensure' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'Category' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'GroupScope' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'Description' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'Path' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] The parameter 'GroupName' is in desired state. (DRC0039)
+[BB-DC01]:                            [[ADGroup]Group_DL_Recipes_Write] AD Group 'DL_BB_Recipes_Write' is in the desired state. (ADG0025)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADGroup]Group_DL_Recipes_Write]  in 72.2220 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADGroup]Group_DL_Recipes_Write]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Retrieved the AD Drive full PSPath of 'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/'.
+(OPE0008)
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Object permission entry found on object
+'OU=Workstations,OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz,DC=barmbuzz,DC=corp'. (OPE0001)
+[BB-DC01]:                            [[ADObjectPermissionEntry]Delegate_Workstation_Join] Object permission entry on object 'OU=Workstations,OU=Computers,OU=Bolton,OU=Sites,OU=BarmBuzz,DC=barmbuzz,DC=corp'
+is in the desired state. (OPE0005)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]  in 0.9940 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADObjectPermissionEntry]Delegate_Workstation_Join]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_ava_barista]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_ava_barista]
+[BB-DC01]:                            [[ADUser]User_ava_barista] Retrieving 'ava_barista' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'Password' property is NOT in the desired state. Expected '<Password>', actual '<Password>'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'Enabled' property is NOT in the desired state. Expected 'True', actual 'False'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is not in the desired state. (ADU0010)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_ava_barista]  in 2.3540 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_ava_barista]
+[BB-DC01]:                            [[ADUser]User_ava_barista] Retrieving 'ava_barista' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_ava_barista] 'ava_barista' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_ava_barista] Setting password for 'ava_barista'. (ADU0017)
+[BB-DC01]:                            [[ADUser]User_ava_barista] Updating property 'Enabled' with 'True'. (ADU0018)
+[BB-DC01]:                            [[ADUser]User_ava_barista] Updating 'ava_barista' in domain 'barmbuzz.corp'. (ADU0016)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_ava_barista]  in 0.8620 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADUser]User_ava_barista]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_bob_manager]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_bob_manager]
+[BB-DC01]:                            [[ADUser]User_bob_manager] Retrieving 'bob_manager' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'Password' property is NOT in the desired state. Expected '<Password>', actual '<Password>'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'Enabled' property is NOT in the desired state. Expected 'True', actual 'False'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is not in the desired state. (ADU0010)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_bob_manager]  in 0.5660 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_bob_manager]
+[BB-DC01]:                            [[ADUser]User_bob_manager] Retrieving 'bob_manager' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_bob_manager] 'bob_manager' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_bob_manager] Setting password for 'bob_manager'. (ADU0017)
+[BB-DC01]:                            [[ADUser]User_bob_manager] Updating property 'Enabled' with 'True'. (ADU0018)
+[BB-DC01]:                            [[ADUser]User_bob_manager] Updating 'bob_manager' in domain 'barmbuzz.corp'. (ADU0016)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_bob_manager]  in 1.0370 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADUser]User_bob_manager]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Retrieving 'charlie_helpdesk' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'Password' property is NOT in the desired state. Expected '<Password>', actual '<Password>'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'Enabled' property is NOT in the desired state. Expected 'True', actual 'False'. (ADU0013)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is not in the desired state. (ADU0010)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADUser]User_charlie_helpdesk]  in 0.2800 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Retrieving 'charlie_helpdesk' from domain 'barmbuzz.corp'. (ADU0004)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] 'charlie_helpdesk' is present in domain 'barmbuzz.corp'. (ADU0007)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Setting password for 'charlie_helpdesk'. (ADU0017)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Updating property 'Enabled' with 'True'. (ADU0018)
+[BB-DC01]:                            [[ADUser]User_charlie_helpdesk] Updating 'charlie_helpdesk' in domain 'barmbuzz.corp'. (ADU0016)
+[BB-DC01]: LCM:  [ End    Set      ]  [[ADUser]User_charlie_helpdesk]  in 0.5670 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADUser]User_charlie_helpdesk]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ End    Test     ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]  in 0.3500 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]
+[BB-DC01]:                            [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas] Performing the operation "Set-TargetResource" on target "Executing the SetScript with the user supplied
+credential".
+[BB-DC01]: LCM:  [ End    Set      ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]  in 0.1600 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[Script]AddUserToGroup_ava_barista_GG_Bolton_Baristas]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ End    Test     ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]  in 0.2010 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]
+[BB-DC01]:                            [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers] Performing the operation "Set-TargetResource" on target "Executing the SetScript with the user supplied
+credential".
+[BB-DC01]: LCM:  [ End    Set      ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]  in 0.1290 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[Script]AddUserToGroup_bob_manager_GG_Bolton_Managers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ End    Test     ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]  in 0.1900 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]
+[BB-DC01]:                            [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk] Performing the operation "Set-TargetResource" on target "Executing the SetScript with the user supplied
+credential".
+[BB-DC01]: LCM:  [ End    Set      ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]  in 0.3890 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[Script]AddUserToGroup_charlie_helpdesk_GG_Bolton_Helpdesk]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Querying Active Directory domain 'barmbuzz.corp' default password policy. (ADDDPP0001)
+[BB-DC01]:                            [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy] Resource 'barmbuzz.corp' is in the desired state. (ADDDPP0005)
+[BB-DC01]: LCM:  [ End    Test     ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]  in 0.4400 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ End    Resource ]  [[ADDomainDefaultPasswordPolicy]SetPasswordPolicy]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[WindowsFeature]GPMC]
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' started: GPMC
+[BB-DC01]:                            [[WindowsFeature]GPMC] The operation 'Get-WindowsFeature' succeeded: GPMC
+[BB-DC01]: LCM:  [ End    Test     ]  [[WindowsFeature]GPMC]  in 6.3290 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ End    Resource ]  [[WindowsFeature]GPMC]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]  in 1.6930 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Workstations_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]  in 0.2230 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_Servers_Baseline]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]  in 0.0610 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_POS_Lockdown]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]  in 0.2330 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GroupPolicy]GPO_GPO_AllUsers_Banner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]  in 0.6110 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_WksBaseline_Workstations]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]  in 0.2120 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_SrvBaseline_Servers]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_POSLockdown_POS]  in 0.2230 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_POSLockdown_POS]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]  in 0.0490 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPLink]GPLink_Link_Banner_BarmBuzz]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]  in 0.8840 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NoLMHash]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]  in 0.1050 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_SMBSigning]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]  in 0.0760 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_NTLMv2Only]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]  in 0.1170 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_WKs_ScreenSaver]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]  in 0.0630 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_AuditLogSize]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]  in 0.0630 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Srv_SMB1Disable]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_NoUSB]  in 0.0830 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_NoUSB]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]  in 0.1140 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_POS_LogonBanner]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Title]  in 0.1270 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Title]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPRegistryValue]GPOReg_Banner_Text]  in 0.0910 seconds.
+[BB-DC01]: LCM:  [ Skip   Set      ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPRegistryValue]GPOReg_Banner_Text]
+[BB-DC01]: LCM:  [ Start  Resource ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ Start  Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Test     ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 45.0490 seconds.
+[BB-DC01]: LCM:  [ Start  Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Set      ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]  in 100.8440 seconds.
+[BB-DC01]: LCM:  [ End    Resource ]  [[GPPermission]GPOPerm_Perm_POS_Baristas]
+[BB-DC01]: LCM:  [ End    Set      ]
+[BB-DC01]: LCM:  [ End    Set      ]    in  437.4010 seconds.
+Operation 'Invoke CimMethod' complete.
+Time taken for configuration job to complete is 427.272 seconds
+[+] Apply complete.
+
+[Phase 3] Validation...
+[*] Pester validation will be added later.
+
+[+] BUILD SUCCESS
+[*] Next steps (commit outputs + evidence):
+    git add DSC\Outputs Evidence
+    git commit -m \ Build 20260306_135116\
+**********************
+Windows PowerShell transcript end
+End time: 20260306135932
+**********************

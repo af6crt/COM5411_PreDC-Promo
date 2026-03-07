@@ -1,0 +1,67 @@
+// This file contains Pester tests for validating the Active Directory configuration in the BarmBuzz environment.   
+
+Describe "Domain Controller Tests" {
+    It "Should have correct domain name" {
+        (Get-ADDomain).DNSRoot | Should -Be 'barmbuzz.corp'
+    }
+
+    It "Should have domain controller BB-DC01" {
+        (Get-ADDomainController).HostName | Should -BeLike '*BB-DC01*'
+    }
+
+    It "Should have AD WS service running" {
+        (Get-Service -Name ADWS).Status | Should -Be 'Running'
+    }
+}
+
+
+
+
+Describe "OU Structure Tests" {
+    It "Should have BarmBuzz root OU" {
+        Get-ADOrganizationalUnit -Filter "Name -eq 'BarmBuzz'" | Should -Not -Be $null
+    }
+
+    It "Should have Tier0 OU" {
+        Get-ADOrganizationalUnit -Filter "Name -eq 'Tier0'" | Should -Not -Be $null
+    }
+
+    It "Should have Bolton Users OU" {
+        Get-ADOrganizationalUnit -Filter "Name -eq 'Users'" | Should -Not -Be $null
+    }
+}
+
+
+Describe "User Tests" {
+    It "Should have Ava Barista user" {
+        Get-ADUser -Filter "SamAccountName -eq 'ava_barista'" | Should -Not -Be $null
+    }
+
+    It "Should have Bob Manager user" {
+        Get-ADUser -Filter "SamAccountName -eq 'bob_manager'" | Should -Not -Be $null
+    }
+
+    It "Should have Charlie Helpdesk user" {
+        Get-ADUser -Filter "SamAccountName -eq 'charlie_helpdesk'" | Should -Not -Be $null
+    }
+}
+
+
+
+Describe "Group Tests" {
+    It "Should have Baristas global group" {
+        Get-ADGroup -Filter "Name -eq 'GG_BB_Bolton_Baristas'" | Should -Not -Be $null
+    }
+
+    It "Should have Managers global group" {
+        Get-ADGroup -Filter "Name -eq 'GG_BB_Bolton_Managers'" | Should -Not -Be $null
+    }
+}
+
+
+
+# Run all tests
+Invoke-Pester -Path .\Tests\Pester\
+
+# Save output as evidence
+Invoke-Pester -Path .\Tests\Pester\ -OutputFile Evidence\Pester\test-results.xml -OutputFormat NUnitXML
