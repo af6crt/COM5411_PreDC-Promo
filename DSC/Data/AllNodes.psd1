@@ -1,5 +1,38 @@
 
-
+##
+## AllNodes.psd1 - DSC node data and conventions
+## Purpose: Static data bag consumed by DSC configurations. This file
+## contains node entries and structured settings used by the build
+## orchestrator and DSC configurations. Only comment lines (#) are
+## added by this change; no executable values were modified.
+##
+## Comment conventions used in this file:
+## - LAB:   Notes relevant for lab/test environments (e.g. plaintext creds allowed)
+## - NOTE:  Informational guidance or recommended practice
+## - WARN:  Security or operational warnings (pay attention before changing)
+## - KEY:   Short description of important keys and their purpose
+##
+## KEY explanations (quick reference):
+## - NodeName: logical name used by DSC to identify the node entry
+## - Role: role assigned to the node (e.g. DC, WINClient)
+## - DomainName / DomainNetBIOSName / DomainDN: AD domain identifiers
+## - ForestMode / DomainMode: AD functional levels for forest/domain
+## - InstallADDS / InstallRSAT / InstallGPMC: booleans that drive feature installation
+## - InterfaceAlias_*/IPv4Address_*/DnsServers_*: network configuration values
+## - PsDscAllowPlainTextPassword / PsDscAllowDomainUser: LAB-only DSC runtime flags
+##   WARN: In production, credentials must be injected securely and MOFs encrypted
+## - OrganizationalUnits: list of OUs to create (Key, Name, ParentPath, etc.)
+## - SecurityGroups: definitions for Global/DomainLocal groups used with AGDLP
+## - Delegations: AD permission delegations to grant limited rights to groups
+## - ADUsers: user accounts to provision (UserName, OUPath, GroupMembership, etc.)
+## - PasswordPolicy: domain password/lockout settings (min length, history, lockout)
+## - GroupPolicies / GPOLinks / GPORegistryValues / GPOPermissions: GPO definitions,
+##   where GPORegistryValues map a policy to a registry key/value enforced by a GPO
+## - DefaultComputerOU / ADComputers: default OU for joins and pre-staged computers
+##
+## NOTE: Treat this file as data only. The orchestrator (`Run_BuildMain.ps1`)
+## injects credentials and performs MOF encryption in non-lab environments.
+##
 @{
     AllNodes = @(
         @{

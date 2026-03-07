@@ -1,4 +1,28 @@
 
+##
+## StudentConfig.ps1 - DSC configuration for baseline domain build
+## Purpose: Define a DSC configuration that promotes a node to a
+## Domain Controller, creates AD structure, groups, users, delegations
+## and GPOs. This file is data-driven by `AllNodes.psd1` and expects
+## credentials to be injected by the caller (orchestrator).
+##
+## Comment conventions used below:
+## - LAB:   relaxed/lab-only settings (e.g. plaintext credentials)
+## - NOTE:  informational guidance or rationale for a choice
+## - WARN:  security/operational warnings you should heed before use
+## - KEY:   short explanation of configuration keys or fields
+##
+## KEY explanations (quick reference):
+## - $DomainAdminCredential / $DsrmCredential / $UserCredential: PSCredential
+##   objects supplied by the caller to perform privileged operations.
+## - Node selection uses `$AllNodes` (from AllNodes.psd1) to drive resources.
+## - Resources prefixed with AD/GroupPolicy/Network manipulate AD and GPOs.
+##  - PARAMS: credentials are required and must be PSCredential objects.
+## KEY: $DomainAdminCredential - account used to perform domain/AD actions
+## KEY: $DsrmCredential - Directory Services Restore Mode password (DSRM)
+##KEY: $UserCredential - generic user password used for created accounts
+## NOTE: Treat this file as data only. The orchestrator (`Run_BuildMain.ps1`)
+## injects credentials and performs MOF encryption in non-lab environments.)/
 
 
 
@@ -412,3 +436,6 @@ Configuration StudentBaseline {
         }
     } 
 }    
+
+
+
